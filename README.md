@@ -3,6 +3,15 @@ Final Project for Getting and Cleaning Data Course
 
 This repo was created to finish the assignment for week 4 of Getting and Cleaning Data Coursera course.
 
+## Data Set used
+Companies like Fitbit, Nike, and Jawbone Up are racing to develop the most advanced algorithms to attract new users. The data linked to from the course website represent data collected from the accelerometers from the Samsung Galaxy S smartphone. A full description is available at the site where the data was obtained:
+
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
+Here are the data for the project:
+
+https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+
   First, download and unzip the data file into your R working directory.
   Second, download the R source code into your R working directory.
   Finally, execute R source code to generate tidy data file.
