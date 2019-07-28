@@ -1,5 +1,11 @@
 library(dplyr)
 
+# read data description
+features <- read.table("features.txt", col.names = c("n","functions"))
+
+# read activity labels
+activities <- read.table("activity_labels.txt", col.names = c("code", "activity"))
+
 # read train data
 X_train <- read.table("train/X_train.txt", col.names = features$functions)
 Y_train <- read.table("train/Y_train.txt", col.names = "code")
@@ -10,12 +16,6 @@ X_test <- read.table("test/X_test.txt", col.names = features$functions)
 Y_test <- read.table("test/Y_test.txt", col.names = "code")
 Sub_test <- read.table("test/subject_test.txt", col.names = "subject")
 
-# read data description
-features <- read.table("features.txt", col.names = c("n","functions"))
-
-# read activity labels
-activities <- read.table("activity_labels.txt", col.names = c("code", "activity"))
-
 # 1. Merges the training and the test sets to create one data set.
 X_total <- rbind(X_train, X_test)
 Y_total <- rbind(Y_train, Y_test)
@@ -23,7 +23,7 @@ Subject_total <- rbind(Sub_train, Sub_test)
 Merged_data <- cbind(Subject_total, Y_total, X_total)
 
 # 2. Extracts only the measurements on the mean and standard deviation for each measurement.
-TidyData <- Merged_data %>% select(subject, code, contains("mean"), contains("std"))
+TidyData <- Merged_data %>% select(subject, code, contains("mean()"), contains("std()"))
 
 # 3. Uses descriptive activity names to name the activities in the data set
 TidyData$code <- activities[TidyData$code, 2]
